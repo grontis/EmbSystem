@@ -6,12 +6,13 @@ import sys, time
 import RPi.GPIO as GPIO
 from Classes.LEDController import LEDController
 
+
 #CONFIGURE ADS CONVERTER WITH RASPBERRY PI
-i2c = busio.I2C(board.SCL, board.SDA)
-ads = ADS.ADS1015(i2c)
+#i2c = busio.I2C(board.SCL, board.SDA)
+#ads = ADS.ADS1015(i2c)
 #single ended analog input mode
-tempChannel = AnalogIn(ads, ADS.P0)
-IRChannel = AnalogIn(ads, ADS.P1)
+#tempChannel = AnalogIn(ads, ADS.P0)
+#IRChannel = AnalogIn(ads, ADS.P1)
 
 def getTemp():
 	temp = 0

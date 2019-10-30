@@ -14,7 +14,9 @@ IRChannel = AnalogIn(ads, ADS.P1)
 
 def main():
     led1 = LEDController(17,27,22)
+    led2 = LEDController(10,9,11)
     led1.redOn()
+    led2.redOn()
     print(getTemp())
 
 def getTemp():

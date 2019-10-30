@@ -26,7 +26,6 @@ def main():
         led1.blueOff()
         led1.redOn()
 
-    led2.redOn()
     print(getTemp())
 
 
@@ -88,10 +87,10 @@ class LEDController:
         blink(self.bluePin)
 
     def redOff(self):
-        turnOff(redPin)
+        turnOff(self.redPin)
 
     def greenOff(self):
-        turnOff(greenPin)
+        turnOff(self.greenPin)
 
     def blueOff(self):
         turnOff(self.bluePin)

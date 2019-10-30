@@ -28,9 +28,6 @@ def main():
     print(getTemp())
 
 
-def tempLEDS(threshhold):
-
-
 def getTemp():
     temp = 0
     for i in range(5):

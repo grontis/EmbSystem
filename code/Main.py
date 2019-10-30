@@ -21,7 +21,9 @@ def getTemp():
     temp = 0
     for i in range(5):
         temp += (tempChannel.voltage - .5) /.01
-    return temp/5
+    temp = temp / 5
+    tempF = temp * (1.8) + 32
+    return tempF
 
 def getIR():
 	IRValue = 0

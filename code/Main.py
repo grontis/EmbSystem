@@ -20,8 +20,10 @@ def main():
     led2 = LEDController(23,24,25)
 
     if getTemp()< threshhold:
+        led1.redOff()
         led1.blueOn()
     elif getTemp() > threshhold:
+        led1.blueOff()
         led1.redOn()
 
     led2.redOn()

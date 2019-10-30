@@ -13,14 +13,14 @@ tempChannel = AnalogIn(ads, ADS.P0)
 IRChannel = AnalogIn(ads, ADS.P1)
 
 def main():
-    led1 = LEDController(11,13,15)
+    led1 = LEDController(0,2,3)
     led1.redOn()
 
 def getTemp():
-	temp = 0
-	for i in range(5):
-		temp += (tempChannel.voltage - .5) /.01
-	return temp
+    temp = 0
+    for i in range(5):
+        temp += (tempChannel.voltage - .5) /.01
+    return temp
 
 def getIR():
 	IRValue = 0
@@ -36,12 +36,12 @@ class LEDController:
         self.bluePin = bluepin
 
     def blink(self, pin):
-        GPIO.setmode(GPIO.BOARD)
+        GPIO.setmode(GPIO.BCM)
         GPIO.setup(pin, GPIO.OUT)
         GPIO.output(pin, GPIO.HIGH)
 
     def turnOff(self, pin):
-        GPIO.setmode(GPIO.BOARD)
+        GPIO.setmode(GPIO.BCM)
         GPIO.setup(pin, GPIO.OUT)
         GPIO.output(pin, GPIO.LOW)
 

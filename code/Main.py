@@ -74,43 +74,43 @@ class LEDController:
         self.blink(self.greenPin)
 
     def cyanOn(self):
-        blink(self.greenPin)
-        blink(self.bluePin)
+        self.blink(self.greenPin)
+        self.blink(self.bluePin)
 
     def magentaOn(self):
-        blink(self.redPin)
-        blink(self.bluePin)
+        self.blink(self.redPin)
+        self.blink(self.bluePin)
 
     def whiteOn(self):
-        blink(self.redPin)
-        blink(self.greenPin)
-        blink(self.bluePin)
+        self.blink(self.redPin)
+        self.blink(self.greenPin)
+        self.blink(self.bluePin)
 
     def redOff(self):
-        turnOff(self.redPin)
+        self.turnOff(self.redPin)
 
     def greenOff(self):
-        turnOff(self.greenPin)
+        self.turnOff(self.greenPin)
 
     def blueOff(self):
-        turnOff(self.bluePin)
+        self.turnOff(self.bluePin)
 
     def yellowOff(self):
-        turnOff(self.redPin)
-        turnOff(self.greenPin)
+        self.turnOff(self.redPin)
+        self.turnOff(self.greenPin)
 
     def cyanOff(self):
-        turnOff(self.greenPin)
-        turnOff(self.bluePin)
+        self.turnOff(self.greenPin)
+        self.turnOff(self.bluePin)
 
     def magentaOff(self):
-        turnOff(self.redPin)
-        turnOff(self.bluePin)
+        self.turnOff(self.redPin)
+        self.turnOff(self.bluePin)
 
     def whiteOff(self):
-        turnOff(self.redPin)
-        turnOff(self.greenPin)
-        turnOff(self.bluePin)
+        self.turnOff(self.redPin)
+        self.turnOff(self.greenPin)
+        self.turnOff(self.bluePin)
 
 while(True):
     main()

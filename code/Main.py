@@ -12,12 +12,24 @@ ads = ADS.ADS1015(i2c)
 tempChannel = AnalogIn(ads, ADS.P0)
 IRChannel = AnalogIn(ads, ADS.P1)
 
+#temperature threshhold for thermastat
+threshhold = 80.0
+
 def main():
     led1 = LEDController(17,27,22)
     led2 = LEDController(23,24,25)
-    led1.redOn()
+
+    if getTemp()< threshhold:
+        led1.blueOn()
+    elif getTemp() > threshhold:
+        led1.redOn()
+
     led2.redOn()
     print(getTemp())
+
+
+def tempLEDS(threshhold):
+
 
 def getTemp():
     temp = 0

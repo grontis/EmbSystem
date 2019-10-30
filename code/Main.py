@@ -13,14 +13,15 @@ tempChannel = AnalogIn(ads, ADS.P0)
 IRChannel = AnalogIn(ads, ADS.P1)
 
 def main():
-    led1 = LEDController(0,2,3)
+    led1 = LEDController(17,27,22)
     led1.redOn()
+    print(getTemp())
 
 def getTemp():
     temp = 0
     for i in range(5):
         temp += (tempChannel.voltage - .5) /.01
-    return temp
+    return temp/5
 
 def getIR():
 	IRValue = 0

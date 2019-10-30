@@ -18,17 +18,17 @@ class LEDController:
         GPIO.output(pin, GPIO.LOW)
 
     def redOn(self):
-        blink(redPin)
+        self.blink(redPin)
 
     def greenOn(self):
-        blink(greenPin)
+        self.blink(greenPin)
 
     def blueOn(self):
-        blink(bluePin)
+        self.blink(bluePin)
 
     def yellowOn(self):
-        blink(redPin)
-        blink(greenPin)
+        self.blink(redPin)
+        self.blink(greenPin)
 
     def cyanOn(self):
         blink(greenPin)

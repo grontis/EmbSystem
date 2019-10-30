@@ -4,7 +4,7 @@ import adafruit_ads1x15.ads1015 as ADS
 from adafruit_ads1x15.analog_in import AnalogIn
 import sys, time
 import RPi.GPIO as GPIO
-import LEDController.py
+from .LEDController import LEDController
 
 #CONFIGURE ADS CONVERTER WITH RASPBERRY PI
 i2c = busio.I2C(board.SCL, board.SDA)

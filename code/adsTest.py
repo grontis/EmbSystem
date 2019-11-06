@@ -20,17 +20,16 @@ def getIR():
 	IRValue = 0
 	for i in range(5):
 		IRValue += chan2.value
-	print(IRValue/5)
-	return
+	return IRValue/5
 
 while True:
-	if getIR() < 2500:
+	if getIR() < 5000.0:
 		print("No motion")
 
-	if getIR() > 20000:
+	if getIR() > 20000.0:
 		print("Close Motion")
 
-	if 5000 < getIR() < 20000:
+	if 5000.0 < getIR() < 20000.0:
 		print("Far motion")
 
 	time.sleep(0.5)

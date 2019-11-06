@@ -73,7 +73,7 @@ def main():
                 passcodeSequence += 1
             led2.greenOn()
             time.sleep(0.1)
-            led.greenOff()
+            led2.greenOff()
         elif motionInput != passcode[passcodeSequence] and motionInput != '' and passcodeEntered == False:
             print("Mistake in passcode sequence")
             passcodeSequence = 0
@@ -85,7 +85,7 @@ def main():
             print("Password entered correctly.")
 
     if passcodeEntered:
-        global led1
+        led1 = LEDController(17, 27, 22)
         if getTemp()< threshhold:
             led1.redOff()
             led1.blueOn()

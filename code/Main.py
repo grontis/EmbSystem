@@ -20,7 +20,7 @@ threshhold = 86.0
 #passcode variables
 passcodeEntered = False
 passcodeSequence = 0
-passcode = '101'
+passcode = '10'
 
 
 def main():
@@ -59,7 +59,7 @@ def main():
 
     if passcodeEntered:
         led1 = LEDController(17,27,22)
-        led2 = LEDController(23,24,25)
+        led2 = LEDController(23, 24, 25)
 
         if getTemp()< threshhold:
             led1.redOff()

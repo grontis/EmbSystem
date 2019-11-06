@@ -87,7 +87,7 @@ def main():
             led2.blueOff()
             led2.greenOn()
             time.sleep(0.05)
-            led.greenOff()
+            led2.greenOff()
             print("Password entered correctly.")
 
     if passcodeEntered:

@@ -5,6 +5,8 @@ from adafruit_ads1x15.analog_in import AnalogIn
 import sys, time
 import RPi.GPIO as GPIO
 
+GPIO.cleanup()
+
 #CONFIGURE ADS CONVERTER WITH RASPBERRY PI
 i2c = busio.I2C(board.SCL, board.SDA)
 ads = ADS.ADS1015(i2c)

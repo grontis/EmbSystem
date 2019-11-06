@@ -46,7 +46,10 @@ def main():
 
     if  passcodeEntered == False:
 
-        led2.blueOn()
+        #blink Password LED red
+        led2.redOn()
+        time.sleep(0.05)
+        led2.redOff()
 
         motionInput = ''
         if getIR() < 5000.0:
@@ -84,7 +87,6 @@ def main():
             led2.blueOn()
 
         if passcodeEntered:
-            led2.blueOff()
             print("Password entered correctly.")
 
     if passcodeEntered:

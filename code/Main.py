@@ -15,19 +15,54 @@ IRChannel = AnalogIn(ads, ADS.P1)
 #temperature threshhold for thermastat
 threshhold = 86.0
 
+#passcode variables
+passcodeEntered = False
+passcodeSequence = 0
+passcode = '101'
+
+
 def main():
-    led1 = LEDController(17,27,22)
-    led2 = LEDController(23,24,25)
 
-    if getTemp()< threshhold:
-        led1.redOff()
-        led1.blueOn()
-    elif getTemp() > threshhold:
-        led1.blueOff()
-        led1.redOn()
+    if not passcodeEntered:
+        motionInput = ''
+        if getIR() < 5000.0:
+            print("No motion " + str(getIR()))
+            motionInput = ''
 
-    print(getTemp())
+        if getIR() > 15000.0:
+            print("1: Close Motion " + str(getIR()))
+            motionInput = '1'
 
+        if 10000.0 < getIR() < 14000.0:
+            print("0: Far motion " + str(getIR()))
+            motionInput = '0'
+
+        if motionInput == passcode[passcodeSequence] and motionInput != '' and passcodeEntered == False:
+            if len(passcode) - 1 == passcodeSequence:
+                passcodeEntered = True
+                passcodeSequence = 0
+            else:
+                passcodeSequence += 1
+        elif motionInput != passcode[passcodeSequence] and motionInput != '' and passcodeEntered == False:
+            print("Mistake in passcode sequence")
+
+        if passcodeEntered:
+            print("Password entered correctly.")
+
+    if passcodeEntered:
+        led1 = LEDController(17,27,22)
+        led2 = LEDController(23,24,25)
+
+        if getTemp()< threshhold:
+            led1.redOff()
+            led1.blueOn()
+        elif getTemp() > threshhold:
+            led1.blueOff()
+            led1.redOn()
+
+        print(getTemp())
+
+    time.sleep(0.2)
 
 def getTemp():
     temp = 0

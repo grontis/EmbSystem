@@ -20,10 +20,10 @@ def getIR():
 	IRValue = 0
 	for i in range(5):
 		IRValue += chan2.value
-	print(IRValue)
+	print(IRValue/5)
 	return
 
 while True:
-	getTemp()
+	#getTemp()
 
-	#getIR()
+	getIR()

@@ -13,7 +13,7 @@ tempChannel = AnalogIn(ads, ADS.P0)
 IRChannel = AnalogIn(ads, ADS.P1)
 
 #temperature threshhold for thermastat
-threshhold =95.0
+threshhold = 86.0
 
 def main():
     led1 = LEDController(17,27,22)

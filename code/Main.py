@@ -78,7 +78,7 @@ def getTemp():
 def getIR():
 	IRValue = 0
 	for i in range(5):
-		IRValue += chan2.value
+		IRValue += IRChannel.value
 	return IRValue/5
 
 class LEDController:

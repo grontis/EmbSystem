@@ -24,6 +24,13 @@ def getIR():
 	return
 
 while True:
-	#getTemp()
+	if getIR() < 2500:
+		print("No motion")
 
-	getIR()
+	if getIR() > 20000:
+		print("Close Motion")
+
+	if 5000 < getIR() < 20000:
+		print("Far motion")
+
+	time.sleep(0.5)

@@ -22,10 +22,20 @@ passcodeEntered = False
 passcodeSequence = 0
 passcode = '10'
 
-led1 = LEDController(17, 27, 22)
-led1.redOff()
-led1.greenOff()
-led1.blueOff()
+#Set RGB LEDs to off at start
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(17, GPIO.OUT)
+GPIO.output(17, GPIO.LOW)
+GPIO.setup(27, GPIO.OUT)
+GPIO.output(27, GPIO.LOW)
+GPIO.setup(22, GPIO.OUT)
+GPIO.output(22, GPIO.LOW)
+GPIO.setup(23, GPIO.OUT)
+GPIO.output(23, GPIO.LOW)
+GPIO.setup(24, GPIO.OUT)
+GPIO.output(24, GPIO.LOW)
+GPIO.setup(25, GPIO.OUT)
+GPIO.output(25, GPIO.LOW)
 
 def main():
     global passcodeEntered

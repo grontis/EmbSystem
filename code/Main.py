@@ -79,7 +79,7 @@ def main():
             print("Mistake in passcode sequence")
             passcodeSequence = 0
             led2.redOn()
-            time.sleep(0.2)
+            time.sleep(1)
             led2.redOff()
 
         if passcodeEntered:
@@ -87,7 +87,7 @@ def main():
             print("Password entered correctly.")
 
     if passcodeEntered:
-        
+
         led1 = LEDController(17, 27, 22)
         if getTemp()< threshhold:
             led1.redOff()

@@ -22,13 +22,24 @@ passcodeEntered = False
 passcodeSequence = 0
 passcode = '10'
 
+led1 = LEDController(17, 27, 22)
+led1.redOff()
+led1.greenOff()
+led1.blueOff()
 
 def main():
     global passcodeEntered
     global passcodeSequence
     global passcode
 
+    led2 = LEDController(23, 24, 25)
+
     if  passcodeEntered == False:
+
+        led2.yellowOn()
+        time.sleep(0.05)
+        led2.yellowOff()
+
         motionInput = ''
         if getIR() < 5000.0:
             print("No motion " + str(getIR()))
@@ -50,17 +61,21 @@ def main():
                 passcodeSequence = 0
             else:
                 passcodeSequence += 1
+            led2.greenOn()
+            time.sleep(0.1)
+            led.greenOff()
         elif motionInput != passcode[passcodeSequence] and motionInput != '' and passcodeEntered == False:
             print("Mistake in passcode sequence")
             passcodeSequence = 0
+            led2.redOn()
+            time.sleep(0.1)
+            led2.redOff()
 
         if passcodeEntered:
             print("Password entered correctly.")
 
     if passcodeEntered:
-        led1 = LEDController(17,27,22)
-        led2 = LEDController(23, 24, 25)
-
+        global led1
         if getTemp()< threshhold:
             led1.redOff()
             led1.blueOn()

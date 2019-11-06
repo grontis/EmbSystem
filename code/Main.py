@@ -35,10 +35,12 @@ def main():
         if getIR() > 15000.0:
             print("1: Close Motion " + str(getIR()))
             motionInput = '1'
+            time.sleep(0.1)
 
         if 10000.0 < getIR() < 14000.0:
             print("0: Far motion " + str(getIR()))
             motionInput = '0'
+            time.sleep(0.1)
 
         if motionInput == passcode[passcodeSequence] and motionInput != '' and passcodeEntered == False:
             if len(passcode) - 1 == passcodeSequence:

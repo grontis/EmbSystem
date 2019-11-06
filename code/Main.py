@@ -22,6 +22,9 @@ passcode = '101'
 
 
 def main():
+    global passcodeEntered
+    global passcodeSequence
+    global passcode
 
     if  passcodeEntered == False:
         motionInput = ''

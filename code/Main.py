@@ -23,7 +23,7 @@ passcode = '101'
 
 def main():
 
-    if not passcodeEntered:
+    if  passcodeEntered == False:
         motionInput = ''
         if getIR() < 5000.0:
             print("No motion " + str(getIR()))

@@ -33,11 +33,11 @@ while True:
 		print("No motion " + str(getIR()))
 		motionInput = ''
 
-	if getIR() > 20000.0:
+	if getIR() > 15000.0:
 		print("1: Close Motion " + str(getIR()))
 		motionInput = '1'
 
-	if 10000.0 < getIR() < 20000.0:
+	if 10000.0 < getIR() < 14000.0:
 		print("0: Far motion " + str(getIR()))
 		motionInput = '0'
 
@@ -51,4 +51,4 @@ while True:
 	if passcodeEntered:
 		print("Password entered correctly.")
 
-	time.sleep(0.5)
+	time.sleep(0.2)

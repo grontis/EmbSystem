@@ -85,12 +85,14 @@ def main():
 
         if passcodeEntered:
             led2.blueOff()
-            led2.greenOn()
-            time.sleep(0.05)
-            led2.greenOff()
             print("Password entered correctly.")
 
     if passcodeEntered:
+        #blink Password LED green
+        led2.greenOn()
+        time.sleep(0.05)
+        led2.greenOff()
+
         led1 = LEDController(17, 27, 22)
         if getTemp()< threshhold:
             led1.redOff()

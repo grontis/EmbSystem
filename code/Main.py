@@ -20,9 +20,9 @@ threshhold = 86.0
 #passcode variables
 passcodeEntered = False
 passcodeSequence = 0
-passcode = '10'
+passcode = '1010'
 
-#Set RGB LEDs to off at start
+#Initialize RGB LEDs to off at start
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(17, GPIO.OUT)
 GPIO.output(17, GPIO.LOW)
@@ -84,6 +84,10 @@ def main():
             led2.blueOn()
 
         if passcodeEntered:
+            led2.blueOff()
+            led2.greenOn()
+            time.sleep(0.05)
+            led.greenOff()
             print("Password entered correctly.")
 
     if passcodeEntered:

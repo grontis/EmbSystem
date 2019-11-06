@@ -1,3 +1,4 @@
+import time
 import board
 import busio
 import adafruit_ads1x15.ads1015 as ADS

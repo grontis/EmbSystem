@@ -48,6 +48,7 @@ def main():
                 passcodeSequence += 1
         elif motionInput != passcode[passcodeSequence] and motionInput != '' and passcodeEntered == False:
             print("Mistake in passcode sequence")
+            passcodeSequence = 0
 
         if passcodeEntered:
             print("Password entered correctly.")
@@ -65,7 +66,7 @@ def main():
 
         print(getTemp())
 
-    time.sleep(0.2)
+    time.sleep(0.25)
 
 def getTemp():
     temp = 0

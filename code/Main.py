@@ -46,9 +46,7 @@ def main():
 
     if  passcodeEntered == False:
 
-        led2.yellowOn()
-        time.sleep(0.05)
-        led2.yellowOff()
+        led2.blueOn()
 
         motionInput = ''
         if getIR() < 5000.0:
@@ -71,15 +69,19 @@ def main():
                 passcodeSequence = 0
             else:
                 passcodeSequence += 1
+            led2.blueOff()
             led2.greenOn()
-            time.sleep(0.1)
+            time.sleep(0.2)
             led2.greenOff()
+            led2.blueOn()
         elif motionInput != passcode[passcodeSequence] and motionInput != '' and passcodeEntered == False:
             print("Mistake in passcode sequence")
             passcodeSequence = 0
+            led2.blueOff()
             led2.redOn()
-            time.sleep(0.1)
+            time.sleep(0.2)
             led2.redOff()
+            led2.blueOn()
 
         if passcodeEntered:
             print("Password entered correctly.")

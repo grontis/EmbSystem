@@ -1,17 +1,18 @@
 import sys, time
 import RPi.GPIO as GPIO
+GPIO.cleanup()
 
-redPin = 11
-greenPin = 13
-bluePin = 15
+redPin = 23
+greenPin = 24
+bluePin = 25
 
 def blink(pin):
-	GPIO.setmode(GPIO.BOARD)
+	GPIO.setmode(GPIO.BCM)
 	GPIO.setup(pin, GPIO.OUT)
 	GPIO.output(pin, GPIO.HIGH)
 
 def turnOff(pin):
-	GPIO.setmode(GPIO.BOARD)
+	GPIO.setmode(GPIO.BCM)
 	GPIO.setup(pin, GPIO.OUT)
 	GPIO.output(pin, GPIO.LOW)
 

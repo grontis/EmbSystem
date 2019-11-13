@@ -141,4 +141,4 @@ while True:
 
     # Update shadow
     deviceShadowHandler.shadowUpdate(json.dumps(payload), customShadowCallback_Update, 5)
-    time.sleep(1)
+    time.sleep(5)

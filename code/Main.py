@@ -20,7 +20,7 @@ threshhold = 86.0
 #passcode variables
 passcodeEntered = False
 passcodeSequence = 0
-passcode = '1010'
+passcode = '10'
 
 #Initialize RGB LEDs to off at start
 GPIO.setmode(GPIO.BCM)

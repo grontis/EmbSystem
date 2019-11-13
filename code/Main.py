@@ -89,11 +89,23 @@ def main():
     if passcodeEntered:
 
         led1 = LEDController(17, 27, 22)
-        if getTemp()< threshhold:
-            led1.redOff()
+        if getTemp()< threshhold - 12:
+            led1.allOff()
+            led1.magentaOn()
+        elif threshhold-12 < getTemp() < threshhold-8:
+            led1.allOff()
             led1.blueOn()
-        elif getTemp() > threshhold:
-            led1.blueOff()
+        elif threshold-8 < getTemp() < threshhold-4:
+            led1.allOff()
+            led1.cyanOn()
+        elif threshold-4 < getTemp() < threshhold + 4:
+            led1.allOff()
+            led1.greenOn()
+        elif threshhold+4 < getTemp() < threshhold+8:
+            led1.allOff()
+            led1.yellowOn()
+        elif threshold+8 < getTemp():
+            led1.allOff()
             led1.redOn()
 
         print(getTemp())
@@ -177,10 +189,11 @@ class LEDController:
         self.turnOff(self.redPin)
         self.turnOff(self.bluePin)
 
-    def whiteOff(self):
+    def allOff(self):
         self.turnOff(self.redPin)
         self.turnOff(self.greenPin)
         self.turnOff(self.bluePin)
+
 
 while(True):
     main()

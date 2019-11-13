@@ -15,7 +15,7 @@ tempChannel = AnalogIn(ads, ADS.P0)
 IRChannel = AnalogIn(ads, ADS.P1)
 
 #temperature threshhold for thermastat
-threshhold = 86.0
+threshold = 86.0
 
 #passcode variables
 passcodeEntered = False
@@ -89,19 +89,19 @@ def main():
     if passcodeEntered:
 
         led1 = LEDController(17, 27, 22)
-        if getTemp()< threshhold - 12:
+        if getTemp()< threshold - 12:
             led1.allOff()
             led1.magentaOn()
-        elif threshhold-12 < getTemp() < threshhold-8:
+        elif threshold-12 < getTemp() < threshold-8:
             led1.allOff()
             led1.blueOn()
-        elif threshold-8 < getTemp() < threshhold-4:
+        elif threshold-8 < getTemp() < threshold-4:
             led1.allOff()
             led1.cyanOn()
-        elif threshold-4 < getTemp() < threshhold + 4:
+        elif threshold-4 < getTemp() < threshold + 4:
             led1.allOff()
             led1.greenOn()
-        elif threshhold+4 < getTemp() < threshhold+8:
+        elif threshold+4 < getTemp() < threshold+8:
             led1.allOff()
             led1.yellowOn()
         elif threshold+8 < getTemp():

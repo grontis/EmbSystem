@@ -48,7 +48,7 @@ def main():
 
         #blink Password LED red
         led2.redOn()
-        time.sleep(0.05)
+        time.sleep(0.005)
         led2.redOff()
 
         motionInput = ''

@@ -17,6 +17,12 @@ IRChannel = AnalogIn(ads, ADS.P1)
 #temperature threshhold for thermastat
 threshold = 82.0
 
+#IR sensor bounds
+closeLowerBound = 20000.0
+farLowerBound = 13000.0
+farUpperBound = 16000.0
+
+
 #passcode variables
 passcodeEntered = False
 passcodeSequence = 0
@@ -53,19 +59,16 @@ def main():
 
         motionInput = ''
         irReading = getIR()
-        if irReading < 10000.0:
-            print("No motion " + str(irReading))
-            motionInput = ''
 
-        if irReading > 20000.0:
+        if irReading > closeLowerBound:
             print("1: Close Motion " + str(irReading))
             motionInput = '1'
-            time.sleep(0.1)
+            time.sleep(0.05)
 
-        if 13000.0 < irReading < 16000.0:
+        if farLowerBound < irReading < farUpperBound:
             print("0: Far motion " + str(irReading))
             motionInput = '0'
-            time.sleep(0.1)
+            time.sleep(0.05)
 
         if motionInput == passcode[passcodeSequence] and motionInput != '' and passcodeEntered == False:
             if len(passcode) - 1 == passcodeSequence:
@@ -88,30 +91,31 @@ def main():
             print("Password entered correctly.")
 
     if passcodeEntered:
+        tempReading = getTemp()
 
         led1 = LEDController(17, 27, 22)
-        if getTemp()< threshold - 8:
+        if tempReading< threshold - 8:
             led1.allOff()
             led1.magentaOn()
-        elif threshold-8 < getTemp() < threshold-4:
+        elif threshold-8 < tempReading < threshold-4:
             led1.allOff()
             led1.blueOn()
-        elif threshold-4 < getTemp() < threshold-2:
+        elif threshold-4 < tempReading < threshold-2:
             led1.allOff()
             led1.cyanOn()
-        elif threshold-2 < getTemp() < threshold + 2:
+        elif threshold-2 < tempReading < threshold + 2:
             led1.allOff()
             led1.greenOn()
-        elif threshold+2 < getTemp() < threshold+4:
+        elif threshold+2 < tempReading < threshold+4:
             led1.allOff()
             led1.yellowOn()
-        elif threshold+4 < getTemp():
+        elif threshold+4 < tempReading:
             led1.allOff()
             led1.redOn()
 
-        print(getTemp())
+        print(tempReading)
 
-    time.sleep(0.25)
+    time.sleep(0.5)
 
 def getTemp():
     temp = 0

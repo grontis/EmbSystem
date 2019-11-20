@@ -19,7 +19,7 @@ threshold = 82.0
 
 #IR sensor bounds
 closeLowerBound = 20000.0
-farLowerBound = 13000.0
+farLowerBound = 10000.0
 farUpperBound = 16000.0
 
 

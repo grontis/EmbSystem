@@ -64,15 +64,15 @@ rootCAPath = "~/EmbSystem/keys/AmazonRootCA1.pem"
 certificatePath = "~/EmbSystem/keys/pi-certificate.pem.crt.txt"
 privateKeyPath = "~/EmbSystem/keys/pi-private.pem.key"
 port = args.port
-useWebsocket = False
+useWebsocket = args.useWebsocket
 thingName = "RaspberryPi"
 clientId = "RaspberryPi"
 
-if args.useWebsocket and args.certificatePath and args.privateKeyPath:
+if args.useWebsocket and certificatePath and privateKeyPath:
     parser.error("X.509 cert authentication and WebSocket are mutual exclusive. Please pick one.")
     exit(2)
 
-if not args.useWebsocket and (not args.certificatePath or not args.privateKeyPath):
+if not args.useWebsocket and (not certificatePath or not privateKeyPath):
     parser.error("Missing credentials for authentication.")
     exit(2)
 

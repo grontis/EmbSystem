@@ -118,11 +118,14 @@ def main():
     time.sleep(0.5)
 
 def getTemp():
-    temp = 0
+    tempF = 0
     for i in range(5):
-        temp += (tempChannel.voltage - .5) /.01
-    temp = temp / 5
-    tempF = temp * (1.8) + 32
+        #get celsius reading from sensor
+        temp = (tempChannel.voltage - .5) /.01
+        #then convert to F
+        tempF += temp * (1.8) + 32
+    #average 5 readings
+    tempF = tempF / 5
     return tempF
 
 def getIR():

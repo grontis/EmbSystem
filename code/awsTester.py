@@ -83,12 +83,14 @@ if not args.useWebsocket and not args.port:  # When no port override for non-Web
     port = 8883
 
 # Configure logging
+'''
 logger = logging.getLogger("AWSIoTPythonSDK.core")
 logger.setLevel(logging.DEBUG)
 streamHandler = logging.StreamHandler()
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 streamHandler.setFormatter(formatter)
 logger.addHandler(streamHandler)
+'''
 
 # Init AWSIoTMQTTShadowClient
 myAWSIoTMQTTShadowClient = None

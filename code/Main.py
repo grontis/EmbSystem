@@ -119,13 +119,13 @@ def main():
 
 def getTemp():
     tempF = 0
-    for i in range(5):
+    for i in range(20):
         #get celsius reading from sensor
         temp = (tempChannel.voltage - .5) /.01
         #then convert to F
         tempF += temp * (1.8) + 32
     #average 5 readings
-    tempF = tempF / 5
+    tempF = tempF / 20
     return tempF
 
 def getIR():

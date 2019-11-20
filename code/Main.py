@@ -89,6 +89,7 @@ def main():
         if passcodeEntered:
             led2.greenOn()
             print("Password entered correctly.")
+        time.sleep(0.2)
 
     if passcodeEntered:
         tempReading = getTemp()
@@ -114,8 +115,7 @@ def main():
             led1.redOn()
 
         print(tempReading)
-
-    time.sleep(0.5)
+        time.sleep(0.5)
 
 def getTemp():
     tempF = 0

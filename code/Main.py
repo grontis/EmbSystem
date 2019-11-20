@@ -35,11 +35,7 @@ def customShadowCallback_Update(payload, responseStatus, token):
     if responseStatus == "timeout":
         print("Update request " + token + " time out!")
     if responseStatus == "accepted":
-        payloadDict = json.loads(payload)
-        print("~~~~~~~~~~~~~~~~~~~~~~~")
-        print("Update request with token: " + token + " accepted!")
-        print("property: " + str(payloadDict["state"]["desired"]["property"]))
-        print("~~~~~~~~~~~~~~~~~~~~~~~\n\n")
+        
     if responseStatus == "rejected":
         print("Update request " + token + " rejected!")
 
@@ -235,7 +231,7 @@ def main():
             led1.redOn()
 
         print(tempReading)
-        
+
         payload = {"state": {"reported": {"temp": str(tempReading)}}}
         deviceShadowHandler.shadowUpdate(json.dumps(payload), customShadowCallback_Update, 5)
 

@@ -235,8 +235,9 @@ def main():
             led1.redOn()
 
         print(tempReading)
+        
         payload = {"state": {"reported": {"temp": str(tempReading)}}}
-        deviceShadowHandler.shadowUpdate(json.dumps(payload), 5)
+        deviceShadowHandler.shadowUpdate(json.dumps(payload), customShadowCallback_Update, 5)
 
 
         time.sleep(0.5)

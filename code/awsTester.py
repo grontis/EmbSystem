@@ -60,9 +60,9 @@ parser.add_argument("-w", "--websocket", action="store_true", dest="useWebsocket
 
 args = parser.parse_args()
 host = "a37zzqz465wad2-ats.iot.us-east-1.amazonaws.com"
-rootCAPath = "~/EmbSystem/keys/AmazonRootCA1.pem"
-certificatePath = "~/EmbSystem/keys/pi-certificate.pem.crt.txt"
-privateKeyPath = "~/EmbSystem/keys/pi-private.pem.key"
+rootCAPath = "/home/pi/EmbSystem/keys/AmazonRootCA1.pem"
+certificatePath = "/home/pi/EmbSystem/keys/pi-certificate.pem.crt.txt"
+privateKeyPath = "/home/pi/EmbSystem/keys/pi-private.pem.key"
 port = args.port
 useWebsocket = args.useWebsocket
 thingName = "RaspberryPi"

@@ -52,16 +52,16 @@ def main():
         led2.redOff()
 
         motionInput = ''
-        if getIR() < 5000.0:
+        if getIR() < 10000.0:
             print("No motion " + str(getIR()))
             motionInput = ''
 
-        if getIR() > 15000.0:
+        if getIR() > 20000.0:
             print("1: Close Motion " + str(getIR()))
             motionInput = '1'
             time.sleep(0.1)
 
-        if 10000.0 < getIR() < 14000.0:
+        if 13000.0 < getIR() < 16000.0:
             print("0: Far motion " + str(getIR()))
             motionInput = '0'
             time.sleep(0.1)

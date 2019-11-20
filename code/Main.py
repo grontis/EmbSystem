@@ -123,7 +123,7 @@ tempChannel = AnalogIn(ads, ADS.P0)
 IRChannel = AnalogIn(ads, ADS.P1)
 
 #temperature threshhold for thermastat
-threshold = 82.0
+threshold = 79.0
 
 #IR sensor bounds
 closeLowerBound = 20000.0

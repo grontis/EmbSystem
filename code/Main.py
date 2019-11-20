@@ -35,7 +35,7 @@ def customShadowCallback_Update(payload, responseStatus, token):
     if responseStatus == "timeout":
         print("Update request " + token + " time out!")
     if responseStatus == "accepted":
-        
+        print("ShadowUpdate Accepted")
     if responseStatus == "rejected":
         print("Update request " + token + " rejected!")
 

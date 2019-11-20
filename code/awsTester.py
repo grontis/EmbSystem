@@ -132,7 +132,7 @@ while True:
     print(temp)
 
     #Create message payload
-    payload = {"state":{"reported":{{"temp":str(temp)},{"Status":"OK"}}}}
+    payload = {"state":{"reported":{"temp":str(temp)}}}
 
     # Update shadow
     deviceShadowHandler.shadowUpdate(json.dumps(payload), customShadowCallback_Update, 5)

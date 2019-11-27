@@ -3,7 +3,7 @@ import logging
 import time
 import json
 import argparse
-
+import datetime
 
 import board
 import busio
@@ -123,7 +123,7 @@ tempChannel = AnalogIn(ads, ADS.P0)
 IRChannel = AnalogIn(ads, ADS.P1)
 
 #temperature threshhold for thermastat
-threshold = 79.0
+threshold = 81.0
 
 #IR sensor bounds
 closeLowerBound = 20000.0
@@ -223,8 +223,8 @@ def main():
             led1.redOn()
 
         print(tempReading)
-
-        payload = {"state": {"reported": {"temp": str(tempReading)}}}
+        currentTime = datetime.datetime.now()
+        payload = {"state": {"reported": {"temp": str(tempReading),"time": currentTime}}}
         deviceShadowHandler.shadowUpdate(json.dumps(payload), customShadowCallback_Update, 5)
 
 

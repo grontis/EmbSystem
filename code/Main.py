@@ -241,6 +241,7 @@ def getTemp():
         tempF += temp * (1.8) + 32
     #average 5 readings
     tempF = tempF / 20
+    tempF = tempF - 4
     return tempF
 
 def getIR():
